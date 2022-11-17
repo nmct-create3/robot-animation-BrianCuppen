@@ -15,6 +15,12 @@
   --global-html-color: var(--global-color-front);
   --global-html-backgroundColor: var(--global-color-back);
   --global-selection-backgroundColor: var(--global-color-front);
+
+  /* global shadow setttings */
+  --c-robot-animation-duration: 0.75s;
+  --c-robot-animation-timing-function: ease-in-out;
+  --c-robot-animation-iteration-count: infinite;
+  --c-animation-direction: alternate;
 }
 
 /*------------------------------------*\
@@ -34,6 +40,7 @@ html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--global-html-backgroundColor);
 }
 
 *,
@@ -133,16 +140,53 @@ body {
 */
 
 .c-robot {
+  fill: white;
+  max-width: 300px;
+ /* do dis to center the svg */
+  display: block;
+  margin: auto;
 }
 
 .c-robot__shadow {
+  color: black;
+  /* transparent */
+  opacity: 0.5;
 }
 
+.c-robot--css-anim #Shadow{
+  transform-origin: 50% 100%;
+  animation-name: shadowPulse;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
 
+#Robot_master{
+  animation-name: robotHover;
+  animation-duration: var(--c-robot-animation-duration);
+  animation-timing-function: var(--c-robot-animation-timing-function);
+  animation-iteration-count: var(--c-robot-animation-iteration-count);
+  animation-direction: var(--c-animation-direction);
+}
 /*
     Component: Controls
 */
-
+@keyframes shadowPulse {
+  100% {
+    transform: scale(0.75);
+  }
+  
+}
+@keyframes robotHover {
+  0% {
+    transform: translateY(2.5%);
+  }
+  100% {
+    transform: translateY(-2.5%);
+  }
+  
+}
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
