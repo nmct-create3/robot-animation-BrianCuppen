@@ -156,10 +156,10 @@ body {
 .c-robot--css-anim #Shadow{
   transform-origin: 50% 100%;
   animation-name: shadowPulse;
-  animation-duration: 0.75s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation-duration: var(--c-robot-animation-duration);
+  animation-timing-function: var(--c-robot-animation-timing-function);
+  animation-iteration-count: var(--c-robot-animation-iteration-count);
+  animation-direction: var(--c-animation-direction);
 }
 
 #Robot_master{
